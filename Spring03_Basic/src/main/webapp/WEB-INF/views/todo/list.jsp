@@ -5,17 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/views/home.jsp</title>
+<title>/WEB-INF/views/todo/list.jsp</title>
 </head>
 <body>
-<h1>인덱스 페이지 입니다.</h1>
+<h1>할일 목록입니다.</h1>
 <ul>
-	<li><a href="todo/list.do">할일 목록 보기</a></li>
-</ul>
-<h2>공지사항</h2>
-<ul>
-	<c:forEach var="tmp" items="${requestScope.notice }" >
-		<li>${tmp }</li>		
+	<c:forEach var="tmp" items="${todoList }">
+		<li>${tmp }</li>
 	</c:forEach>
 </ul>
 </body>
