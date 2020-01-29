@@ -4,9 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.gura.spring03.users.dto.UsersDto;
+
+
 
 @Controller
 public class UsersController {
@@ -50,6 +55,28 @@ public class UsersController {
 			isSuccess=true;
 			//로그인 처리를 한다
 			session.setAttribute("id", id);
+		}
+		//view page 에서 필요한 모델을 담고
+		mView.addObject("isSuccess",isSuccess);
+		//view page 의 정보도 담고
+		mView.setViewName("users/login");
+		//리턴해준다.
+		return mView;
+	}
+	/*
+	 * 	@ModelAttribute 어노테이션과 함께 Dto 를 메소드의 인자로 선언하면
+	 * 	전송되는 파라미터가 자동 추출되어서 Dto 객체에 담겨서 인자로 전달된다.
+	 * 	단, 전송되는 파라미터명과 Dto 의 필드명이 같아야 한다.
+	 */
+	@RequestMapping("/users/login3")
+	public ModelAndView login3(@ModelAttribute UsersDto dto,
+			HttpSession session, ModelAndView mView) {
+		//유효한 정보인지 여부
+		boolean isSuccess=false;
+		if(dto.getId().equals("gura") && dto.getPwd().equals("1234")) {
+			isSuccess=true;
+			//로그인 처리를 한다
+			session.setAttribute("id", dto.getId());
 		}
 		//view page 에서 필요한 모델을 담고
 		mView.addObject("isSuccess",isSuccess);
