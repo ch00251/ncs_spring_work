@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/home.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
+<jsp:include page="include/resource.jsp"/>
 </head>
 <body>
+<jsp:include page="include/navbar.jsp"/>
 <div class="container">
 	<h1>왕언니가 남기고간 선물</h1>
 	<ul>
