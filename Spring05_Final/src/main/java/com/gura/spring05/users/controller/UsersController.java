@@ -131,9 +131,9 @@ public class UsersController {
 	
 	//개인 정보 보기 요청 처리
 	@RequestMapping("/users/info")
-	public ModelAndView authinfo(HttpServletRequest request, 
+	public ModelAndView authInfo(HttpServletRequest request, 
 			ModelAndView mView) {
-		//로그인된 아이디 읽어오기
+		//로그인된 아이디 읽어오기(로그인 안하면 실행순서가 여기로 안보내짐)
 		String id=(String)request.getSession().getAttribute("id");
 		//UsersService 객체를 이용해서 개인정보를 ModelAndView 객체에 담기도록 한다.
 		service.showInfo(id, mView);
