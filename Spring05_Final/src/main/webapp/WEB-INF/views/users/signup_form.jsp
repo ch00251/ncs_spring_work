@@ -18,7 +18,7 @@
 <body>
 <div class="container">
 	<h1>회원 가입 페이지</h1>
-	<form action="signup.do" method="post" id="signupForm">
+	<form action="insert.do" method="post" id="signupForm">
 		<!-- 초기 상태 -->
 		<div class="form-group has-feedback">
 			<label class="control-label" for="id">아이디</label>

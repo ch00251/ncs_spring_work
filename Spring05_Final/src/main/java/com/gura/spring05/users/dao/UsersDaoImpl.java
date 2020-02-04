@@ -30,4 +30,18 @@ public class UsersDaoImpl implements UsersDao{
 		session.insert("users.insert", dto);
 	}
 
+	@Override
+	public String getPwdHash(String inputId) {
+		//입력한 아이디를 이용해서 저장된 비밀번호를 select 한다.
+		//만일 존재하지 않는 비밀번호이면 null 이다.
+		String savedPwd=session.selectOne("users.getPwdHash",inputId);
+		//select 된 비밀번호를 리턴해준다.
+		return savedPwd;
+	}
+
+	@Override
+	public UsersDto getData(String id) {
+		return session.selectOne("users.getData", id);
+	}
+
 }
