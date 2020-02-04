@@ -25,4 +25,10 @@
 		from users
 		where id=#{id}
 	</select>
+	
+	<update id="updateProfile" parameterType="usersDto">
+		update users
+		set profile=#{profile}
+		where id=#{id}
+	</update>
 </mapper>
