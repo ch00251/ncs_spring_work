@@ -25,14 +25,20 @@
 	</insert>
 	
 	<select id="getData" parameterType="int" resultType="fileDto">
-		select num,writer,title,orgFileName,saveFileName,fileSize, downCount,regdate
-		from board_file
-		where num=#{num}
+		SELECT num,writer,title,orgFileName,saveFileName,fileSize,
+			downCount, regdate
+		FROM board_file
+		WHERE num=#{num}
 	</select>
-	
 	<update id="addDownCount" parameterType="int">
-		update board_file
-		set downCount=downCount+1
-		where num=#{num}
+		UPDATE board_file
+		SET downCount=downCount+1
+		WHERE num=#{num}
 	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from board_file
+		where num=#{num}
+	</delete>
+
 </mapper>
