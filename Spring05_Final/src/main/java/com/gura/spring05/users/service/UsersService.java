@@ -20,4 +20,5 @@ public interface UsersService {
 			MultipartFile mFile);
 	public void updatePassword(UsersDto dto, ModelAndView mView);
 	public void updateUser(UsersDto dto);
+	public void delete(String id);
 }
