@@ -52,7 +52,9 @@ public class FileController {
 		//다운로드 횟수 증가 시키도록
 		service.addDownCount(num);
 		//view page 정보를 ModelAndView 객체에 담기
-		mView.setViewName("file/download");
+		mView.setViewName("fileDownView");// 다운로드를 view에서 할 수 있게 하기
 		return mView;
 	}
+	
+	
 }
