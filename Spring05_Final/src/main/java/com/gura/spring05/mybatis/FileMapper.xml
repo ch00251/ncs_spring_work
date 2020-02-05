@@ -16,4 +16,11 @@
 				order by num desc) result1)
 		where rnum between #{startRowNum} and #{endRowNum}
 	</select>
+	
+	<insert id="insert" parameterType="fileDto">
+		insert into board_file
+		(num, writer, title, orgFileName, saveFileName, fileSize, downCount, regdate)
+		values(board_file_seq.nextval, #{writer}, #{title}, #{orgFileName}, 
+			#{saveFileName}, #{fileSize}, #{downCount}, sysdate)
+	</insert>
 </mapper>
