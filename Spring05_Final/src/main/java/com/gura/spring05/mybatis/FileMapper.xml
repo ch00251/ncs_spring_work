@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="file">
-
+	<select id="getCount" resultType="int">
+		select max(rownum)
+		from board_file 
+	</select>
+	
+	<select id="getList" parameterType="fileDto" resultType="fileDto">
+		select * 
+		from
+			(select result1.*, rownum as rnum
+			from		
+				(select num,writer,title,orgFileName,fileSize,downCount,regdate
+				from board_file
+				order by num desc) result1)
+		where rnum between #{startRowNum} and #{endRowNum}
+	</select>
 </mapper>
