@@ -51,7 +51,7 @@
 
 		</tbody>
 	</table>
-	<a href="${pageContext.request.contextPath }/file/upload_form.do">파일 업로드</a>
+	<a href="upload_form.do">파일 업로드</a>
 	<div class="page-display">
 		<ul class="pagination pagination-sm">
 			<c:choose>
