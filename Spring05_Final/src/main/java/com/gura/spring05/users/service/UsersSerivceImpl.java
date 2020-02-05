@@ -118,5 +118,11 @@ public class UsersSerivceImpl implements UsersService{
 			mView.addObject("isSuccess", false);//기존 비밀번호를 잘못 작성한 것
 		}
 	}
+	@Override
+	public void updateUser(UsersDto dto) {
+		dao.updateUser(dto);
+	}
+	
+	
 
 }

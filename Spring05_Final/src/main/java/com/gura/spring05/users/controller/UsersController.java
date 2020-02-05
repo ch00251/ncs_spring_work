@@ -193,4 +193,28 @@ public class UsersController {
 		mView.setViewName("users/pwd_update");
 		return mView;
 	}
+	
+	//회원정보 수정폼 요청처리
+	@RequestMapping("/users/updateform")
+	public ModelAndView authUpdateform(HttpServletRequest request,
+			ModelAndView mView) {
+		//세션 영역에서 로그인된 id 를 읽어와서 
+		String id=(String)request.getSession().getAttribute("id");
+		//서비스 메소드를 호출해서 ModelAndView 객체에 회원정보가 담기게 하고 
+		service.showInfo(id, mView);
+		//view page 설정한 다음 
+		mView.setViewName("users/updateform");
+		return mView; //리턴해준다. 
+	}
+	
+	@RequestMapping(value="/users/update", method=RequestMethod.POST)
+	public ModelAndView authUpdate(@ModelAttribute UsersDto dto,
+			HttpServletRequest request) {
+		//서비스를 이용해서 수정 반영하고
+		service.updateUser(dto);
+		service.updateUser(dto);
+		//개인정보 보기로 다시 리다일렉트 이동 시킨다.
+		return new ModelAndView("redirect:/users/info.do");
+	}
+	
 }
