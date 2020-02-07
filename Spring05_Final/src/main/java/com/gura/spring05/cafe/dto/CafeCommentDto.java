@@ -7,7 +7,7 @@ public class CafeCommentDto {
 	private String target_id; //댓글 대상자의 아이디
 	private int ref_group;//댓글의 그룹번호(원글의 글번호가 댓글의 그룹번호가 된다)
 	private int comment_group;//댓글 내에서의 그룹번호(댓글의 댓글 처리하기 위해)
-	private String delete;//삭제할 댓글인지 여부 "no" | "yes"
+	private String deleted;//삭제할 댓글인지 여부 "no" | "yes"
 	private String regdate;
 	private String profile;//댓글 작성자의 프로필 이미지 경로를 담을 필드
 	
@@ -15,7 +15,7 @@ public class CafeCommentDto {
 	public CafeCommentDto() {}
 
 	public CafeCommentDto(int num, String writer, String content, String target_id, int ref_group, int comment_group,
-			String delete, String regdate, String profile) {
+			String deleted, String regdate, String profile) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -23,7 +23,7 @@ public class CafeCommentDto {
 		this.target_id = target_id;
 		this.ref_group = ref_group;
 		this.comment_group = comment_group;
-		this.delete = delete;
+		this.deleted = deleted;
 		this.regdate = regdate;
 		this.profile = profile;
 	}
@@ -76,12 +76,12 @@ public class CafeCommentDto {
 		this.comment_group = comment_group;
 	}
 
-	public String getDelete() {
-		return delete;
+	public String getdeleted() {
+		return deleted;
 	}
 
-	public void setDelete(String delete) {
-		this.delete = delete;
+	public void setdeleted(String deleted) {
+		this.deleted = deleted;
 	}
 
 	public String getRegdate() {
