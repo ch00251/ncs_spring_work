@@ -8,6 +8,7 @@
 			inner join users
 			on board_cafe_comment.writer=users.id
 			where ref_group=#{ref_group}
+			order by comment_group asc, num asc
 	</select>
 	
 	<update id="delete" parameterType="int">
@@ -19,7 +20,7 @@
 	<insert id="insert" parameterType="cafeCommentDto">
 		insert into board_cafe_comment
 		(num, writer, content, target_id, ref_group, comment_group, regdate)
-		values(#{num}, #{content}, #{target_id}, #{ref_geoup}, 
+		values(#{num}, #{writer}, #{content}, #{target_id}, #{ref_group}, 
 		#{comment_group}, sysdate)
 	</insert>
 	
@@ -33,4 +34,6 @@
 		set content=#{content}
 		where num=#{num}
 	</update>
+	
+	
 </mapper>
