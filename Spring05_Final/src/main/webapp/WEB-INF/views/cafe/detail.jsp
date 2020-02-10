@@ -245,10 +245,11 @@
 	function deleteComment(num){
 		var isDelete=confirm("확인을 누르면 댓글이 삭제 됩니다.");
 		if(isDelete){
+			//페이지 전환 없이 ajax 요청을 통해서 삭제하기
 			$.ajax({
-				url:"comment_delete.do",
+				url:"comment_delete.do", // "/cafe/comment_delete.do" 요청(상대경로)
 				method:"post",
-				data:{"num":num},
+				data:{"num":num},// num 이라는 파라미터명으로 삭제할 댓글의 번호 전송
 				success:function(responseData){
 					if(responseData.isSuccess){
 						var sel="#comment"+num;
@@ -273,9 +274,9 @@
 	//답글 달기 링크를 클릭했을때 실행할 함수 등록
 	$(".comment .reply_link").click(function(){
 		$(this)
-		.parent().parent().parent()
-		.find(".comment-insert-form")
-		.slideToggle(200);
+		.parent().parent().parent()//세 단계 위로 올라가서
+		.find(".comment-insert-form")//이런 요소를 찾는다
+		.slideToggle(200);//접혀 있으면 펼치고 펼쳐 있으면 접는다
 		
 		// 답글 <=> 취소가 서로 토글 되도록 한다. 
 		if($(this).text()=="답글"){
