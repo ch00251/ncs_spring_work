@@ -190,7 +190,8 @@
 		</c:forEach>
 		</ul>
 		<div class="clearfix"></div>
-		<!-- 원글에 댓글을 작성할 수 있는 폼 -->
+		<!-- 원글에 댓글을 작성할 수 있는 폼(이 폼을 제출하면 comment_group번호는 null(원글의 댓글이라는 의미) -->
+		<!-- 자기 댓글하고 원글의 comment_group 번호가 같다 -->
 		<div class="comment_form">
 			<form action="comment_insert.do" method="post">
 				<!-- 댓글의 그룹번호는 원글의 글번호 -->
