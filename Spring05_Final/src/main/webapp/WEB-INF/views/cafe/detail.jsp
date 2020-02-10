@@ -175,7 +175,7 @@
 						</form>	
 						<!-- 로그인한 아이디와 댓글의 작성자와 같으면 수정폼 출력 -->				
 						<c:if test="${id eq tmp.writer }">
-							<form class="comment-update-form" action="comment_update.do">
+							<form class="comment-update-form" action="comment_update.do" method="post">
 								<input type="hidden" name="num" value="${tmp.num }" />
 								<textarea name="content">${tmp.content }</textarea>
 								<button type="submit">수정</button>
