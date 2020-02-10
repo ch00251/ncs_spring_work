@@ -19,7 +19,7 @@
 				<li <c:if test="${param.category eq 'cafe' }">class="active"</c:if>><a href="${pageContext.request.contextPath }/cafe/list.do">Cafe</a></li>
 				<li <c:if test="${param.category eq 'file' }">class="active"</c:if>><a href="${pageContext.request.contextPath }/file/list.do" >자료실</a></li>
 				<li <c:if test="${param.category eq 'my' }">class="active"</c:if>><a href="${pageContext.request.contextPath }/users/info.do">마이페이지</a></li>
-				<li><a href="#">Shop</a></li>
+				<li <c:if test="${param.category eq 'shop' }">class="active"</c:if>><a href="${pageContext.request.contextPath }/shop/list.do">Shop</a></li>
 			</ul>
 			<c:choose>
 				<c:when test="${empty sessionScope.id }"> <%--id가  null이면 --%>
