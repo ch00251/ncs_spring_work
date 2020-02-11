@@ -14,6 +14,7 @@
 	<h1>왕언니가 남기고간 선물</h1>
 	<ul>
 		<li><a href="member/list.do">회원 목록보기(member table)</a></li>
+		<li><a href="angular/test01.html">angularjs Test</a></li>
 	</ul>
 	<h2>공지사항</h2>
 	<ul>
